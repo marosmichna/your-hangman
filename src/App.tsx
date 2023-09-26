@@ -54,7 +54,7 @@ function App() {
     await addDoc(wordsCollectionRef, {word: lowercaseWord});
     setOpenModal(false);
   };
-    
+
   useEffect (() => {
     const getWords = async () => {
       const myData = await getDocs(wordsCollectionRef);
@@ -102,9 +102,13 @@ function App() {
       }
 
       if(isWinner && data) {
-        console.log(data);
+        console.log(data)
+        const randomWord = data[Math.floor(Math.random() * data.length)];
         setGuessLetters([]);
-        setGuessWord(data[Math.floor(Math.random() * data.length)].word);
+        if (randomWord && randomWord.word) {
+          setGuessWord(randomWord.word);
+        }
+        // setGuessWord(data[Math.floor(Math.random() * data.length)].word);
         setOpenModal(true);
       }    
     };
@@ -115,7 +119,7 @@ function App() {
       document.removeEventListener("keypress", handler)
     };
 
-  }, [data, isWinner]);
+  }, [data, isWinner, isLoser]);
 
  
   return (
@@ -178,6 +182,7 @@ function App() {
         </div>
         <Modal
           isOpen={openModal}
+          
           style={{
             content: {
               position: 'absolute',

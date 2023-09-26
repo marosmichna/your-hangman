@@ -4,12 +4,12 @@ import { getFirestore } from "firebase/firestore";
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBr6hQaSEPJ5W-d5bCMjfClKzprd5spLWE",
-  authDomain: "hangman-70c89.firebaseapp.com",
-  projectId: "hangman-70c89",
-  storageBucket: "hangman-70c89.appspot.com",
-  messagingSenderId: "617645660010",
-  appId: "1:617645660010:web:b24aec26dec57ccb9c3713"
+  apiKey: "AIzaSyDUb9s5pYb1BlzYAWpy8Wi4P_grFJ4RkYU",
+  authDomain: "movies-project-beacf.firebaseapp.com",
+  projectId: "movies-project-beacf",
+  storageBucket: "movies-project-beacf.appspot.com",
+  messagingSenderId: "543740535251",
+  appId: "1:543740535251:web:5eb7f21f9a00a56afd8f26"
 };
 
 
