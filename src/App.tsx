@@ -28,6 +28,8 @@ function App() {
   const [newWord, setNewWord] = useState("");
   const [openModal, setOpenModal] = useState(false);
 
+  console.log(guessWord)
+  console.log(data)
   const wordsCollectionRef = collection(db, "hangman");
 
   const incorrectLetters = guessLetters.filter(
@@ -60,8 +62,8 @@ function App() {
       const myData = await getDocs(wordsCollectionRef);
       setData(myData.docs.map((doc) => ({...doc.data(), id: doc.id})))
     }
-    getWords()
-  }, [wordsCollectionRef])
+    getWords();
+  }, []);
 
 
   useEffect(() => {
@@ -98,19 +100,21 @@ function App() {
       setGuessLetters([]);
 
       if(isLoser) {
-        setGuessWord(getWord);
-      }
+        setGuessWord(getWord)
+      } 
 
       if(isWinner && data) {
         console.log(data)
         const randomWord = data[Math.floor(Math.random() * data.length)];
         setGuessLetters([]);
         if (randomWord && randomWord.word) {
+          console.log("-----" + randomWord.word)
           setGuessWord(randomWord.word);
         }
         // setGuessWord(data[Math.floor(Math.random() * data.length)].word);
         setOpenModal(true);
-      }    
+      }  
+      
     };
 
     document.addEventListener("keypress", handler);
