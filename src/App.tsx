@@ -28,8 +28,6 @@ function App() {
   const [newWord, setNewWord] = useState("");
   const [openModal, setOpenModal] = useState(false);
 
-  console.log(guessWord)
-  console.log(data)
   const wordsCollectionRef = collection(db, "hangman");
 
   const incorrectLetters = guessLetters.filter(
@@ -104,14 +102,12 @@ function App() {
       } 
 
       if(isWinner && data) {
-        console.log(data)
         const randomWord = data[Math.floor(Math.random() * data.length)];
         setGuessLetters([]);
         if (randomWord && randomWord.word) {
           console.log("-----" + randomWord.word)
           setGuessWord(randomWord.word);
         }
-        // setGuessWord(data[Math.floor(Math.random() * data.length)].word);
         setOpenModal(true);
       }  
       
